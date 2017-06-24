@@ -1,0 +1,22 @@
+uuid: a3e6868e-e5d2-49d4-a4bb-04a8f3bbbcfc
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - aa_theme
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: aa_theme_breadcrumbs
+theme: aa_theme
+region: header
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }
