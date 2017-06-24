@@ -1,0 +1,22 @@
+uuid: 02c9395a-ac21-490e-af32-922b0d923139
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.refund_reason
+  module:
+    - text
+id: node.refund_reason.body
+field_name: body
+entity_type: node
+bundle: refund_reason
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

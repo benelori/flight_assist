@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains aa_refund.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function aa_refund_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the aa_refund module.
+    case 'help.page.aa_refund':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Functionalities related to the refunds.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function aa_refund_theme() {
+  return [
+    'refund_reason' => [
+      'variables' => [
+        'items' => NULL,
+      ],
+    ],
+  ];
+}
+

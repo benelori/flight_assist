@@ -1,0 +1,26 @@
+uuid: 94b85b57-bab6-49b3-a792-dc19a2972d71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.refund_reason.body
+    - node.type.refund_reason
+  module:
+    - text
+    - user
+id: node.refund_reason.default
+targetEntityType: node
+bundle: refund_reason
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

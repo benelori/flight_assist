@@ -1,0 +1,30 @@
+uuid: c2933baa-4c6b-4d12-9e6e-0d09feeabb5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.refund_reason.body
+    - node.type.refund_reason
+  module:
+    - text
+    - user
+id: node.refund_reason.teaser
+targetEntityType: node
+bundle: refund_reason
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

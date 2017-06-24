@@ -1,0 +1,25 @@
+uuid: 89687e7a-6ca4-447f-a8ed-8093f676a57a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: refund_reason
+label: 'Refund Reason'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      refund_reason: refund_reason
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse_in_admin: false

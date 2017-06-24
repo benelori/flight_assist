@@ -1,0 +1,7 @@
+name: Air Assist Refund
+type: module
+description: Functionalities related to the refunds.
+core: 8.x
+package: Air Assist
+dependencies:
+  - entityqueue
