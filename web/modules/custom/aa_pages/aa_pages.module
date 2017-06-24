@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains aa_pages.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function aa_pages_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the aa_pages module.
+    case 'help.page.aa_pages':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Implementations related to Air Assist pages.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function aa_pages_theme() {
+  return [
+    'about_us' => [
+      'variables' => [
+        'about_us_node' => NULL,
+        'social_links' => NULL,
+      ],
+    ],
+  ];
+}

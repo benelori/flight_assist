@@ -1,0 +1,20 @@
+uuid: ec2e8a5f-2f1d-49a4-a457-34134bc23285
+langcode: en
+status: true
+dependencies:
+  module:
+    - aa_pages
+  theme:
+    - aa_theme
+id: aboutusfooterblock
+theme: aa_theme
+region: footer
+weight: 0
+provider: null
+plugin: about_us_footer_block
+settings:
+  id: about_us_footer_block
+  label: 'About us footer block'
+  provider: aa_pages
+  label_display: '0'
+visibility: {  }

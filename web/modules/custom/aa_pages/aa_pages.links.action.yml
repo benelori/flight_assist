@@ -1,0 +1,6 @@
+entity.aa_page_type.add_form:
+  route_name: 'entity.aa_page_type.add_form'
+  title: 'Add Air Assist Page Type'
+  appears_on:
+    - entity.aa_page_type.collection
+

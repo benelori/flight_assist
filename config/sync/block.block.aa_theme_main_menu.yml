@@ -1,6 +1,6 @@
 uuid: 4685b22f-1544-4025-af31-2b1833511a15
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - system.menu.main
@@ -13,7 +13,7 @@ _core:
 id: aa_theme_main_menu
 theme: aa_theme
 region: header
-weight: 0
+weight: -5
 provider: null
 plugin: 'system_menu_block:main'
 settings:

@@ -1,0 +1,10 @@
+uuid: 2c46a212-b2cc-4c16-ac5e-6926944d2bae
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.about_us_footer
+label: 'About Us Footer'
+targetEntityType: node
+cache: true

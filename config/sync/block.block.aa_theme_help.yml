@@ -11,7 +11,7 @@ _core:
 id: aa_theme_help
 theme: aa_theme
 region: header
-weight: -30
+weight: -2
 provider: null
 plugin: help_block
 settings:

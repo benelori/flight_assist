@@ -1,0 +1,12 @@
+aa_pages.aa_page_type.*:
+  type: config_entity
+  label: 'Air Assist Page Type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

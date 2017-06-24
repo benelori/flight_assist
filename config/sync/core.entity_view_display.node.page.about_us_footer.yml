@@ -1,8 +1,9 @@
-uuid: a8bab2c7-20d0-41ea-b835-81f00b982e0c
+uuid: aeded6a9-90bb-4d97-921c-608acdf36079
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.about_us_footer
     - field.field.node.page.body
     - field.field.node.page.field_page_type
     - node.type.page
@@ -11,17 +12,18 @@ dependencies:
     - user
 _core:
   default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
-id: node.page.default
+id: node.page.about_us_footer
 targetEntityType: node
 bundle: page
-mode: default
+mode: about_us_footer
 content:
   body:
     label: hidden
-    type: text_default
+    type: text_summary_or_trimmed
     weight: 0
     region: content
-    settings: {  }
+    settings:
+      trim_length: 600
     third_party_settings: {  }
 hidden:
   field_page_type: true
