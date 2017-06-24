@@ -35,9 +35,9 @@ db_offline ? 'db-offline',
 <html{{ html_attributes }}>
 <head>
   <head-placeholder token="{{ placeholder_token }}">
-    <title>{{ head_title|safe_join(' | ') }}</title>
-    <css-placeholder token="{{ placeholder_token }}">
-    <js-placeholder token="{{ placeholder_token }}">
+  <title>{{ head_title|safe_join(' | ') }}</title>
+  <css-placeholder token="{{ placeholder_token }}">
+  <js-placeholder token="{{ placeholder_token }}">
 </head>
 <body{{ attributes.addClass(body_classes) }}>
 {#
@@ -48,7 +48,12 @@ db_offline ? 'db-offline',
   {{ 'Skip to main content'|t }}
 </a>
 {{ page_top }}
-{{ page }}
+<!-- PRELOADER -->
+<img id="preloader" src="/themes/custom/aa_theme/images/preloader.gif" alt="" />
+<!-- //PRELOADER -->
+<div class="preloader_hide">
+  {{ page }}
+</div>
 {{ page_bottom }}
 <js-bottom-placeholder token="{{ placeholder_token }}">
 </body>

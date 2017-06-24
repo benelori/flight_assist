@@ -8,7 +8,7 @@
  *
  * Version: 0.3.3
  */
-if ($(window).width() > 1024){
+if (jQuery(window).width() > 1024){
 
 (function($) {
     var selectors = [];

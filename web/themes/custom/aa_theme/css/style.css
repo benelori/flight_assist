@@ -267,7 +267,7 @@ header {
 
 /* __________ Menu __________ */
 .menu_block {
-	position:fixed;
+	position:relative;
 	z-index:9999;
 	left:0;
 	top:0;
