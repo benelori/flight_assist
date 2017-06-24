@@ -1,0 +1,20 @@
+uuid: c737a2d6-0361-427f-bf16-3e9e398a0376
+langcode: en
+status: true
+dependencies:
+  module:
+    - mailchimp_signup
+  theme:
+    - aa_theme
+id: mailchimpsubscriptionformairassisttestsignup
+theme: aa_theme
+region: footer
+weight: -7
+provider: null
+plugin: 'mailchimp_signup_subscribe_block:air_assist_test_signup'
+settings:
+  id: 'mailchimp_signup_subscribe_block:air_assist_test_signup'
+  label: 'Mailchimp Subscription Form: Air Assist Test signup'
+  provider: mailchimp_signup
+  label_display: '0'
+visibility: {  }

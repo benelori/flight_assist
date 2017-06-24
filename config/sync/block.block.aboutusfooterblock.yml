@@ -9,7 +9,7 @@ dependencies:
 id: aboutusfooterblock
 theme: aa_theme
 region: footer
-weight: 0
+weight: -6
 provider: null
 plugin: about_us_footer_block
 settings:
