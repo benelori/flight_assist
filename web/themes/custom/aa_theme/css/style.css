@@ -463,7 +463,7 @@ header {
 /* __________ Clean Code __________ */
 .cleancode_block {
 	padding:96px 0 78px;
-	/*background-image:url(../images/clean_code_bg.jpg);*/
+	background-image:url(../images/clean_code_bg.jpg);
 	background-size:cover;
 	background-color:#1c1c1c;
 	background-position:0 0;

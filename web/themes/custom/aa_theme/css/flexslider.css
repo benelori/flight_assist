@@ -366,8 +366,8 @@ html[xmlns] .slides {display: block;}
 .top_slider .slide3 {
 	height:100%;
 	background-image:url(../images/slider/slide3_bg.jpg);
-	background-repeat:no-repeat;
 	background-size:cover;
+	background-attachment:fixed !important;
 }
 
 .top_slider .slide3 .flex_caption1 {
