@@ -267,7 +267,7 @@ header {
 
 /* __________ Menu __________ */
 .menu_block {
-	position:relative;
+	position:fixed;
 	z-index:9999;
 	left:0;
 	top:0;
@@ -418,7 +418,7 @@ header {
 #about {padding-top:70px;}
 
 /* __________ Services __________ */
-.services_block {padding:7px 0 0;}
+.services_block {padding:40px 0 0;}
 
 .services_item {
 	display:block;

@@ -57,15 +57,13 @@
  * @ingroup themeable
  */
 #}
+{% block header %}
+  {% if page.header %}
+    {{ page.header }}
+  {% endif %}
+{% endblock %}
 {% block page %}
   <div id="page">
-
-    {% block header %}
-      {% if page.header %}
-        {{ page.header }}
-      {% endif %}
-    {% endblock %}
-
     {% block content %}
       <main role="main">
         <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
