@@ -1,0 +1,76 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+    'region',
+    'services_block',
+    'padbot40',
+    'region-' ~ region|clean_class,
+  ]
+%}
+
+<!-- CLEAN CODE -->
+<div class="cleancode_block">
+
+  <!-- CONTAINER -->
+  <div class="container" data-appear-top-offset="-200" data-animated="fadeInUp">
+
+    <!-- CASTOM TAB -->
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade in active clearfix" id="tab1">
+        <p class="title"><b>Clean</b> Code</p>
+        <span>We tried to make very high-quality product and so our code is very neat and clean. Whatever anyone could improve and modify the template to your liking.</span>
+      </div>
+      <div class="tab-pane fade clearfix" id="tab2">
+        <p class="title"><b>Technical</b> Support</p>
+        <span>We tried to make very high-quality product and so our code is very neat and clean. Whatever anyone could improve and modify the template to your liking.</span>
+      </div>
+      <div class="tab-pane fade clearfix" id="tab3">
+        <p class="title"><b>Responsive</b></p>
+        <span>We tried to make very high-quality product and so our code is very neat and clean. Whatever anyone could improve and modify the template to your liking.</span>
+      </div>
+      <div class="tab-pane fade clearfix" id="tab4">
+        <p class="title"><b>Documentation</b></p>
+        <span>We tried to make very high-quality product and so our code is very neat and clean. Whatever anyone could improve and modify the template to your liking.</span>
+      </div>
+      <div class="tab-pane fade clearfix" id="tab5">
+        <p class="title"><b>Quality</b></p>
+        <span>We tried to make very high-quality product and so our code is very neat and clean. Whatever anyone could improve and modify the template to your liking.</span>
+      </div>
+      <div class="tab-pane fade clearfix" id="tab6">
+        <p class="title"><b>Support</b></p>
+        <span>We tried to make very high-quality product and so our code is very neat and clean. Whatever anyone could improve and modify the template to your liking.</span>
+      </div>
+    </div>
+    <ul id="myTab" class="nav nav-tabs">
+      <li class="active"><a class="i1" href="#tab1" data-toggle="tab" ><i></i><span>Clean Code</span></a></li>
+      <li><a class="i2" href="#tab2" data-toggle="tab" ><i></i><span>Support</span></a></li>
+      <li><a class="i3" href="#tab3" data-toggle="tab" ><i></i><span>Responsive</span></a></li>
+      <li><a class="i4" href="#tab4" data-toggle="tab" ><i></i><span>Documentation</span></a></li>
+      <li><a class="i5" href="#tab5" data-toggle="tab" ><i></i><span>Quality</span></a></li>
+      <li><a class="i6" href="#tab6" data-toggle="tab" ><i></i><span>Support</span></a></li>
+    </ul><!-- CASTOM TAB -->
+  </div><!-- //CONTAINER -->
+</div><!-- //CLEAN CODE -->
+
+{% if content %}
+  <div {{ attributes.addClass(classes) }} data-appear-top-offset="-200" data-animated="fadeInUp">
+    <div class="container">
+      <div class="row">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+{% endif %}

@@ -1,4 +1,4 @@
-uuid: a7ace336-c97a-49b4-9598-447dbc8fe446
+uuid: dfba050e-d736-44a1-9b4d-8f4f9a804a70
 langcode: en
 status: true
 dependencies:
@@ -6,12 +6,10 @@ dependencies:
     - system
   theme:
     - aa_theme
-_core:
-  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
-id: aa_theme_powered
+id: poweredbydrupal_2
 theme: aa_theme
-region: refund_steps
-weight: -8
+region: about
+weight: 0
 provider: null
 plugin: system_powered_by_block
 settings:

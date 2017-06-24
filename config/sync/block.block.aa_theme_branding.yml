@@ -11,7 +11,7 @@ _core:
 id: aa_theme_branding
 theme: aa_theme
 region: header
-weight: -6
+weight: -9
 provider: null
 plugin: system_branding_block
 settings:

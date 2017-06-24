@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+    'region',
+    'services_block',
+    'padbot40',
+    'region-' ~ region|clean_class,
+  ]
+%}
+
+<!-- CONTAINER -->
+<div class="container">
+  <h2><b>Clients</b> say about us</h2>
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials" data-appear-top-offset="-200" data-animated="fadeInUp">
+
+    <!-- TESTIMONIALS SLIDER -->
+    <div class="owl-demo owl-carousel testim_slider">
+
+      <!-- TESTIMONIAL1 -->
+      <div class="item">
+        <div class="testim_content">“There is nothing scary in the darkness, if you encounter it face-to-face. The inevitable price we pay for our happiness is eternal fear to lose it. When you start thinking a lot about your past, it becomes your present and you can't see your future without it.”</div>
+        <div class="testim_author">—  Anna Balashova, <b>Philosopher</b></div>
+      </div><!-- TESTIMONIAL1 -->
+
+      <!-- TESTIMONIAL2 -->
+      <div class="item">
+        <div class="testim_content">“There is nothing scary in the darkness, if you encounter it face-to-face. The inevitable price we pay for our happiness is eternal fear to lose it. When you start thinking a lot about your past, it becomes your present and you can't see your future without it.”</div>
+        <div class="testim_author">—  Anna Balashova, <b>Philosopher</b></div>
+      </div><!-- TESTIMONIAL2 -->
+
+      <!-- TESTIMONIAL3 -->
+      <div class="item">
+        <div class="testim_content">“There is nothing scary in the darkness, if you encounter it face-to-face. The inevitable price we pay for our happiness is eternal fear to lose it. When you start thinking a lot about your past, it becomes your present and you can't see your future without it.”</div>
+        <div class="testim_author">—  Anna Balashova, <b>Philosopher</b></div>
+      </div><!-- TESTIMONIAL3 -->
+    </div><!-- TESTIMONIALS SLIDER -->
+  </div><!-- //TESTIMONIALS -->
+</div><!-- //CONTAINER -->
+
+{% if content %}
+  <div {{ attributes.addClass(classes) }} data-appear-top-offset="-200" data-animated="fadeInUp">
+    <div class="container">
+      <div class="row">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+{% endif %}
