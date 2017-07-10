@@ -15,41 +15,20 @@
 {%
   set classes = [
     'region',
-    'services_block',
+    'purpose_block',
     'padbot40',
     'region-' ~ region|clean_class,
   ]
 %}
-
-<!-- MULTI PURPOSE -->
-<div class="purpose_block">
-
-  <!-- CONTAINER -->
-  <div class="container">
-
-    <!-- ROW -->
-    <div class="row">
-
-      <div class="col-lg-7 col-md-7 col-sm-7" data-appear-top-offset="-200" data-animated="fadeInLeft">
-        <h2><b>Multi-purpose</b> WordPress Theme</h2>
-        <p>We tried to make very high-quality product and so our code is very neat and clean. Whatever anyone could improve and modify the template to your liking.</p>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        <a class="btn btn-active" href="javascript:void(0);" ><span data-hover="Yes I want it">Byu This theme</span></a>
-        <a class="btn" href="javascript:void(0);" >View more templates</a>
-      </div>
-
-      <div class="col-lg-5 col-md-5 col-sm-5 ipad_img_in" data-appear-top-offset="-200" data-animated="fadeInRight">
-        <img class="ipad_img1" src="/themes/custom/aa_theme/images/img1.png" alt="" />
-      </div>
-    </div><!-- //ROW -->
-  </div><!-- //CONTAINER -->
-</div><!-- //MULTI PURPOSE -->
 
 {% if content %}
   <div {{ attributes.addClass(classes) }} data-appear-top-offset="-200" data-animated="fadeInUp">
     <div class="container">
       <div class="row">
         {{ content }}
+        <div class="col-lg-5 col-md-5 col-sm-5 ipad_img_in" data-appear-top-offset="-200" data-animated="fadeInRight">
+          <img class="ipad_img1" src="/themes/custom/aa_theme/images/img1.png" alt="" />
+        </div>
       </div>
     </div>
   </div>
