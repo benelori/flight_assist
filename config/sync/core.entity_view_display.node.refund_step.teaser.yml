@@ -1,0 +1,26 @@
+uuid: 868af3e4-1de7-47ef-b323-3ce9d8c6e46c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.refund_step.body
+    - node.type.refund_step
+  module:
+    - text
+    - user
+id: node.refund_step.teaser
+targetEntityType: node
+bundle: refund_step
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+hidden:
+  links: true

@@ -1,0 +1,22 @@
+uuid: d076c72a-5859-452c-9794-dc554de3cbae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.refund_step
+  module:
+    - text
+id: node.refund_step.body
+field_name: body
+entity_type: node
+bundle: refund_step
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

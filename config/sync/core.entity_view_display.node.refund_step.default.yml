@@ -1,0 +1,26 @@
+uuid: 56bdb825-aedf-4e48-98a0-ad55ce139122
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.refund_step.body
+    - node.type.refund_step
+  module:
+    - text
+    - user
+id: node.refund_step.default
+targetEntityType: node
+bundle: refund_step
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

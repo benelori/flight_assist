@@ -1,0 +1,25 @@
+uuid: b11971ee-cadb-408c-a316-336426d08245
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: refund_steps
+label: 'Refund steps'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      refund_step: refund_step
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse_in_admin: false

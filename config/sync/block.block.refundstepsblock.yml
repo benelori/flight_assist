@@ -1,0 +1,20 @@
+uuid: 9b21810a-5e21-48ca-8a8b-a5013f1745bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - aa_refund
+  theme:
+    - aa_theme
+id: refundstepsblock
+theme: aa_theme
+region: refund_steps
+weight: 0
+provider: null
+plugin: refund_steps_block
+settings:
+  id: refund_steps_block
+  label: 'Refund steps block'
+  provider: aa_refund
+  label_display: '0'
+visibility: {  }
