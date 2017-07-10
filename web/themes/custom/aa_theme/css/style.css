@@ -475,14 +475,14 @@ header {
 	padding: 0;
 	margin:0 0 80px;
 }
-.cleancode_block p.title {
+.cleancode_block h2.title {
 	margin:0 0 17px;
 	font-weight:100;
 	line-height:80px;
 	font-size:80px;
 	color:#fff;
 }
-.cleancode_block p.title b {font-weight:500;}
+.cleancode_block h2.title b {font-weight:500;}
 
 .cleancode_block span {
 	font-weight:300;
@@ -1685,7 +1685,7 @@ input[type="color"]:focus {
 	.navmenu ul li a {padding-left:15px; padding-right:15px;}
 
 /* __________ Index __________ */
-	.cleancode_block p.title {font-size:70px; line-height:70px;}
+	.cleancode_block h2.title {font-size:70px; line-height:70px;}
 	.cleancode_block .nav-tabs li a {width:136px; height:136px; padding-top:35px;}
 	.cleancode_block .nav-tabs li a i {width:45px; height:45px;}
 	.cleancode_block .nav-tabs li a span {font-size:16px;}
@@ -1759,7 +1759,7 @@ input[type="color"]:focus {
 	
 	
 /* __________ Index __________ */
-	.cleancode_block p.title {font-size:60px; line-height:60px;}
+	.cleancode_block h2.title {font-size:60px; line-height:60px;}
 	.cleancode_block span {font-size:20px; line-height:24px;}
 	.cleancode_block .nav-tabs li a {width:100px; height:100px; padding-top:24px;}
 	.cleancode_block .nav-tabs li a i {width:45px; height:45px;}
@@ -1872,7 +1872,7 @@ input[type="color"]:focus {
 
 
 /* __________ Index __________ */
-	.cleancode_block p.title {font-size:40px; line-height:40px;}
+	.cleancode_block h2.title {font-size:40px; line-height:40px;}
 	.cleancode_block span {font-size:15px; line-height:22px;}
 	.cleancode_block .nav-tabs {margin:0 auto; width:450px;}
 	.cleancode_block .nav-tabs li a {width:120px; height:120px; padding-top:24px;}
@@ -1991,7 +1991,7 @@ input[type="color"]:focus {
 	.purpose_block .btn {padding:10px; margin:10px 5px 0 0;}
 	
 	
-	.cleancode_block p.title {font-size:26px; line-height:26px;}
+	.cleancode_block h2.title {font-size:26px; line-height:26px;}
 	.cleancode_block .nav-tabs {width:290px;}
 	.cleancode_block .nav-tabs li {padding:0;}
 	.cleancode_block .nav-tabs li a {width:96px; height:96px;}
