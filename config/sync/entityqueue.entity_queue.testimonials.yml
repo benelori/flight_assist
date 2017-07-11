@@ -1,0 +1,25 @@
+uuid: 2696bab4-0454-45d4-b2c4-c368a546d6ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: testimonials
+label: Testimonials
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      testimonial: testimonial
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse_in_admin: false

@@ -34,5 +34,10 @@ function aa_pages_theme() {
         'social_links' => NULL,
       ],
     ],
+    'testimonials' => [
+      'variables' => [
+        'items' => NULL,
+      ],
+    ],
   ];
 }
