@@ -1,9 +1,0 @@
-
-# Air Assist Page Type menu items definition
-entity.aa_page_type.collection:
-  title: 'Air Assist Page Type'
-  route_name: entity.aa_page_type.collection
-  description: 'List Air Assist Page Type (bundles)'
-  parent: system.admin_structure
-  weight: 99
-

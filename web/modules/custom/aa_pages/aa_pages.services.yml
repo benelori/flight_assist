@@ -1,5 +1,0 @@
-services:
-  theme.negotiator.aa_pages:
-    class: Drupal\aa_pages\Theme\ThemeNegotiator
-    tags:
-      - { name: theme_negotiator, priority: 10 }

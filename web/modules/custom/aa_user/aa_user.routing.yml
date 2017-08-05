@@ -1,7 +1,0 @@
-aa_user.join_us_controller_build:
-  path: '/join-us'
-  defaults:
-    _controller: '\Drupal\aa_user\Controller\JoinUsController::build'
-    _title: 'Join Us'
-  requirements:
-    _permission: 'access content'
