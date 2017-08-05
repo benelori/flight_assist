@@ -63,18 +63,18 @@
   {% endif %}
 {% endblock %}
 {% block page %}
-  <div id="page">
+  <main id="page" role="main">
     {% block content %}
-      <main role="main">
+      <section id="content">
         <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
         <div class="layout-content">
           {{ page.content }}
         </div>{# /.layout-content #}
 
-      </main>
+      </section>
     {% endblock %}
-  </div>
+  </main>
 {% endblock %}
 
 {% block footer %}

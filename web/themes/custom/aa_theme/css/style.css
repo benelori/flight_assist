@@ -1193,6 +1193,7 @@ footer h4 {color:#fff;}
 /* __________ Contact Form __________ */
 textarea,
 input[type="text"],
+input[type="password"],
 input[type="email"] {
 	width:100%;
 	margin:0 0 10px;
@@ -2042,36 +2043,10 @@ input[type="color"]:focus {
 
 }
 
+.user-page {
+	padding-top: 80px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.page-title {
+	padding-top: 20px;
+}

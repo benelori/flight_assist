@@ -57,70 +57,26 @@
  * @ingroup themeable
  */
 #}
-
-{% extends "page.html.twig" %}
-
+{% block header %}
+  {% if page.header %}
+    {{ page.header }}
+  {% endif %}
+{% endblock %}
 {% block page %}
   <main id="page" role="main">
     {% block content %}
-      <!-- HOME -->
-      <section id="home" class="padbot0">
+      <section id="user" class="user-page">
+        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-        <!-- TOP SLIDER -->
-        <div class="flexslider top_slider">
-          <ul class="slides">
-            <li class="slide1">
-              <div class="flex_caption1">
-                <p class="title1 captionDelay2 FromTop">Creative</p>
-                <p class="title2 captionDelay4 FromTop">White</p>
-                <p class="title3 captionDelay6 FromTop">Templates</p>
-                <p class="title4 captionDelay7 FromBottom">The template is suitable for any company and the direction that appreciates style, purity and quality of the web site.</p>
-              </div>
-              <a class="slide_btn FromRight" href="javascript:void(0);" >Read More</a>
-            <li class="slide2">
-              <div class="flex_caption1">
-                <p class="title1 captionDelay6 FromLeft">Responsive</p>
-                <p class="title2 captionDelay4 FromLeft">Design</p>
-                <p class="title3 captionDelay2 FromLeft">Theme</p>
-                <p class="title4 captionDelay7 FromLeft">The template is suitable for any company and the direction that appreciates style, purity and quality of the web site.</p>
-              </div>
-              <a class="slide_btn FromRight" href="javascript:void(0);" >Read More</a>
-            </li>
-            <li class="slide3">
-              <div class="flex_caption1">
-                <p class="title1 captionDelay1 FromBottom">Amazing</p>
-                <p class="title2 captionDelay2 FromBottom">Video</p>
-                <p class="title3 captionDelay3 FromBottom">Background</p>
-                <p class="title4 captionDelay5 FromBottom">The template is suitable for any company and the direction that appreciates style, purity and quality of the web site.</p>
-              </div>
-              <a class="slide_btn FromRight" href="javascript:void(0);" >Read More</a>
-          </ul>
-        </div>
-      </section><!-- //HOME -->
+        <div class="layout-content container">
+          {{ page.content }}
+        </div>{# /.layout-content #}
 
-
-      <section id="about">
-        {% if page.refunds %}
-          {{ page.refunds }}
-        {% endif %}
-
-        {% if page.refund_steps %}
-          {{ page.refund_steps }}
-        {% endif %}
-
-        {% if page.about %}
-          {{ page.about }}
-        {% endif %}
-      </section>
-
-      <section id="news">
-        {% if page.why_us %}
-          {{ page.why_us }}
-        {% endif %}
       </section>
     {% endblock %}
   </main>
+{% endblock %}
 
-  <section id="contacts">
-  </section>
+{% block footer %}
+
 {% endblock %}
