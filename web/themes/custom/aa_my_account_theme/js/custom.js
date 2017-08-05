@@ -1,5 +1,4 @@
-$(document).ready(function(){
-
+(function ($, Drupal) {
 
   $(".submenu > a").click(function(e) {
     e.preventDefault();
@@ -16,5 +15,4 @@ $(document).ready(function(){
       $li.addClass("open");
     }
   });
-  
-});
+})(jQuery, Drupal);

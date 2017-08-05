@@ -47,8 +47,8 @@ use Drupal\user\UserInterface;
  *   },
  *   links = {
  *     "canonical" = "/admin/structure/refund_application/{refund_application}",
- *     "add-page" = "/admin/structure/refund_application/add",
- *     "add-form" = "/admin/structure/refund_application/add/{refund_application_type}",
+ *     "add-page" = "/apply-for-refund",
+ *     "add-form" = "/apply-for-refund/{refund_application_type}",
  *     "edit-form" = "/admin/structure/refund_application/{refund_application}/edit",
  *     "delete-form" = "/admin/structure/refund_application/{refund_application}/delete",
  *     "collection" = "/admin/structure/refund_application",

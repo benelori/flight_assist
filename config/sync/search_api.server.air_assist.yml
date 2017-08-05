@@ -1,0 +1,17 @@
+uuid: acfd5aab-87eb-4581-8160-a61993adde77
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: air_assist
+name: 'Air Assist'
+description: ''
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 3
+  partial_matches: false
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

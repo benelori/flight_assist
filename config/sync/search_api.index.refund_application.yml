@@ -1,0 +1,79 @@
+uuid: c9d3bf61-0a0a-4c87-a3b4-d3c71bcdee2f
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+    - search_api
+    - aa_my_account
+  config:
+    - search_api.server.air_assist
+id: refund_application
+name: 'Refund Application'
+description: ''
+read_only: false
+field_settings:
+  name:
+    label: Name
+    datasource_id: 'entity:refund_application'
+    property_path: name
+    type: text
+  user_id:
+    label: 'Authored by'
+    datasource_id: 'entity:refund_application'
+    property_path: user_id
+    type: integer
+  langcode:
+    label: Language
+    datasource_id: 'entity:refund_application'
+    property_path: langcode
+    type: string
+  created:
+    label: Created
+    datasource_id: 'entity:refund_application'
+    property_path: created
+    type: date
+  id:
+    label: ID
+    datasource_id: 'entity:refund_application'
+    property_path: id
+    type: integer
+  mail:
+    label: 'Author Email'
+    datasource_id: 'entity:refund_application'
+    property_path: 'user_id:entity:mail'
+    type: text
+    dependencies:
+      module:
+        - user
+  name_1:
+    label: 'Author Name'
+    datasource_id: 'entity:refund_application'
+    property_path: 'user_id:entity:name'
+    type: text
+    dependencies:
+      module:
+        - user
+  uid:
+    label: 'Author ID'
+    datasource_id: 'entity:refund_application'
+    property_path: 'user_id:entity:uid'
+    type: integer
+    dependencies:
+      module:
+        - user
+datasource_settings:
+  'entity:refund_application':
+    bundles:
+      default: true
+      selected: {  }
+processor_settings:
+  aggregated_field: {  }
+  add_url: {  }
+  rendered_item: {  }
+tracker_settings:
+  default: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+server: air_assist

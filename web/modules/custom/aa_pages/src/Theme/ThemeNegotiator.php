@@ -19,10 +19,9 @@ class ThemeNegotiator implements ThemeNegotiatorInterface {
       return 'aa_theme';
     }
 
-    if ($test == 'entity.user.canonical') {
+    if (in_array($test, ['entity.refund_application.add_form', 'entity.user.canonical'])) {
       return 'aa_my_account_theme';
     }
   }
-
 
 }

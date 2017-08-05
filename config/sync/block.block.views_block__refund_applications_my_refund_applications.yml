@@ -1,0 +1,30 @@
+uuid: 0bed09ce-0dd2-47a5-a772-4b79fdd72881
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.refund_applications
+  module:
+    - system
+    - views
+  theme:
+    - aa_my_account_theme
+id: views_block__refund_applications_my_refund_applications
+theme: aa_my_account_theme
+region: content
+weight: -10
+provider: null
+plugin: 'views_block:refund_applications-my_refund_applications'
+settings:
+  id: 'views_block:refund_applications-my_refund_applications'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user*'
+    negate: false
+    context_mapping: {  }
