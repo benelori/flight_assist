@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations.
+ */
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function aa_user_theme($existing, $type, $theme, $path) {
+  return [
+    'join_us' => [
+      'variables' => [
+        'login_form' => NULL,
+        'register_form' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function aa_user_form_user_register_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  $form['actions']['submit']['#submit'][] = 'aa_user_register_submit';
+}
+
+function aa_user_register_submit(array $form, FormStateInterface $form_state) {
+  $form_state->setRedirect('aa_user.join_us_controller_build');
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function aa_user_preprocess_menu__main(&$variables) {
+  $menu_items = &$variables['items'];
+  foreach ($menu_items as $key => $item) {
+    /** @var \Drupal\Core\Url $url */
+    $url = $item['url'];
+    if ($url->getRouteName() == 'aa_user.join_us_controller_build' && \Drupal::currentUser()->isAuthenticated()) {
+      $toUnset = $key;
+    }
+  }
+  if (isset($menu_items[$toUnset])) {
+    unset($menu_items[$toUnset]);
+  }
+}

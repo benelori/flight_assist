@@ -1,0 +1,22 @@
+add refund application entities:
+  title: 'Create new Refund application entities'
+
+administer refund application entities:
+  title: 'Administer Refund application entities'
+  description: 'Allow to access the administration form to configure Refund application entities.'
+  restrict access: true
+
+delete refund application entities:
+  title: 'Delete Refund application entities'
+
+edit refund application entities:
+  title: 'Edit Refund application entities'
+
+access refund application overview:
+  title: 'Access the Refund application overview page'
+
+view published refund application entities:
+  title: 'View published Refund application entities'
+
+view unpublished refund application entities:
+  title: 'View unpublished Refund application entities'

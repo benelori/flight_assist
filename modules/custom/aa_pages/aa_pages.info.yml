@@ -1,0 +1,5 @@
+name: Air Assist Pages
+type: module
+description: Implementations related to Air Assist pages.
+core: 8.x
+package: Air Assist

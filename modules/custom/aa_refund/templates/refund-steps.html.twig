@@ -1,0 +1,50 @@
+{%
+  set classes = [
+    'tab-pane',
+    'fade',
+    'clearfix',
+  ]
+%}
+
+{%
+  set activeClasses = [
+    'active',
+    'in',
+  ]
+%}
+
+<div id="myTabContent" class="tab-content">
+  {% for key,item in items %}
+    {% if key == 1 %}
+      {% set classes = classes|merge(activeClasses) %}
+      <div {{ attributes.addClass(classes) }} id="{{ 'tab' ~ key }}">
+        {{ item }}
+      </div>
+    {% else %}
+      <div {{ attributes.removeClass(activeClasses) }} id="{{ 'tab' ~ key }}">
+        {{ item }}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{%
+  set liClasses = []
+%}
+<ul id="myTab" class="nav nav-tabs">
+  {% for key,title in titles %}
+    {% if key == 1 %}
+      <li class="active">
+        <a class="i1" href="#tab1" data-toggle="tab" >
+          <i></i><span>{{ title }}</span>
+        </a>
+      </li>
+    {% else %}
+      <li>
+        <a class="{{ 'i' ~ key }}" href="{{ '#tab' ~ key }}" data-toggle="tab" >
+          <i></i><span>{{ title }}</span>
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

@@ -1,0 +1,18 @@
+# Refund application routing definition
+
+entity.refund_application.canonical:
+  route_name: entity.refund_application.canonical
+  base_route: entity.refund_application.canonical
+  title: 'View'
+
+entity.refund_application.edit_form:
+  route_name: entity.refund_application.edit_form
+  base_route: entity.refund_application.canonical
+  title: 'Edit'
+
+entity.refund_application.delete_form:
+  route_name:  entity.refund_application.delete_form
+  base_route:  entity.refund_application.canonical
+  title: Delete
+  weight: 10
+

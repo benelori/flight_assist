@@ -1,0 +1,18 @@
+
+# Refund application menu items definition
+entity.refund_application.collection:
+  title: 'Refund application list'
+  route_name: entity.refund_application.collection
+  description: 'List Refund application entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# Refund application type menu items definition
+entity.refund_application_type.collection:
+  title: 'Refund application type'
+  route_name: entity.refund_application_type.collection
+  description: 'List Refund application type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

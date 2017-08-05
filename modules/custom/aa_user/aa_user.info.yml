@@ -1,0 +1,5 @@
+name: Air Assist User
+type: module
+description: Contains user related implementations.
+package:
+core: 8.x

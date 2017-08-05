@@ -1,0 +1,22 @@
+{#
+/**
+ * @file refund_application.html.twig
+ * Default theme implementation to present Refund application data.
+ *
+ * This template is used when viewing Refund application pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_refund_application()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('refund_application') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>
