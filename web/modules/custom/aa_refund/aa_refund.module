@@ -42,3 +42,15 @@ function aa_refund_theme() {
   ];
 }
 
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function aa_refund_form_entity_subqueue_refund_reason_edit_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  /** @var \Drupal\Core\Cache\CacheTagsInvalidatorInterface $service */
+  $service = \Drupal::service('cache_tags.invalidator');
+  $service->invalidateTags(['refund']);
+}

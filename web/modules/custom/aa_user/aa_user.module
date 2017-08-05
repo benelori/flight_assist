@@ -34,3 +34,20 @@ function aa_user_form_user_register_form_alter(
 function aa_user_register_submit(array $form, FormStateInterface $form_state) {
   $form_state->setRedirect('aa_user.join_us_controller_build');
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function aa_user_preprocess_menu__main(&$variables) {
+  $menu_items = &$variables['items'];
+  foreach ($menu_items as $key => $item) {
+    /** @var \Drupal\Core\Url $url */
+    $url = $item['url'];
+    if ($url->getRouteName() == 'aa_user.join_us_controller_build') {
+      $toUnset = $key;
+    }
+  }
+  if (isset($menu_items[$toUnset])) {
+    unset($menu_items[$toUnset]);
+  }
+}

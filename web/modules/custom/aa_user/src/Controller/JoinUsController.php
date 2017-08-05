@@ -3,11 +3,12 @@
 namespace Drupal\aa_user\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\user\Entity\User;
+use Drupal\Core\Url;
 use Drupal\user\Form\UserLoginForm;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Form\FormBuilder;
 use Drupal\Core\Entity\EntityFormBuilder;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Class JoinUsController.
@@ -48,14 +49,17 @@ class JoinUsController extends ControllerBase {
   }
 
   public function build() {
-    $form_object = \Drupal::entityTypeManager()->getFormObject('user', 'register');
+    if (\Drupal::currentUser()->isAnonymous()) {
+      $form_object = \Drupal::entityTypeManager()->getFormObject('user', 'register');
+      $entity = $form_object->getEntityFromRouteMatch(\Drupal::routeMatch(), 'user');
+      return [
+        '#theme' => 'join_us',
+        '#login_form' => $this->formBuilder->getForm(UserLoginForm::class),
+        '#register_form' => $this->entityFormBuilder->getForm($entity, 'register'),
+      ];
+    }
 
-    $entity = $form_object->getEntityFromRouteMatch(\Drupal::routeMatch(), 'user');
-    return [
-      '#theme' => 'join_us',
-      '#login_form' => $this->formBuilder->getForm(UserLoginForm::class),
-      '#register_form' => $this->entityFormBuilder->getForm($entity, 'register'),
-    ];
+    return new RedirectResponse(Url::fromUserInput('/user')->toString());
   }
 
 }

@@ -3,6 +3,7 @@
 namespace Drupal\aa_refund\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\node\NodeInterface;
@@ -94,6 +95,12 @@ class RefundReasonsBlock extends BlockBase implements ContainerFactoryPluginInte
     }
 
     return $output;
+  }
+
+  public function getCacheTags() {
+    $tags = ['refund'];
+
+    return Cache::mergeTags($tags, parent::getCacheTags());
   }
 
 }

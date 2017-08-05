@@ -1,0 +1,10 @@
+uuid: 27ef1af1-2558-4a87-80dc-3b8575b0eb3c
+langcode: en
+status: true
+dependencies:
+  module:
+    - mailchimp_campaign
+id: mailchimp_campaign.token
+label: Token
+targetEntityType: mailchimp_campaign
+cache: true

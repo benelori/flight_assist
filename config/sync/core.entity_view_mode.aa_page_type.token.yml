@@ -1,0 +1,10 @@
+uuid: 944738eb-67f5-4936-8b06-0b2e73134ed9
+langcode: en
+status: true
+dependencies:
+  module:
+    - aa_pages
+id: aa_page_type.token
+label: Token
+targetEntityType: aa_page_type
+cache: true
