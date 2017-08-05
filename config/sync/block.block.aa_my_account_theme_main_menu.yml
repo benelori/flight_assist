@@ -1,0 +1,26 @@
+uuid: 55fca283-6b19-4d0a-9e82-ac33da967f83
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - aa_my_account_theme
+_core:
+  default_config_hash: rx9IrdDv7Ldc4kpalZAxdhIPZfYIeOMh1N-qKoQZwHo
+id: aa_my_account_theme_main_menu
+theme: aa_my_account_theme
+region: header
+weight: -9
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }

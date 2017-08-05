@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @file
+ * Contains aa_my_account.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function aa_my_account_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the aa_my_account module.
+    case 'help.page.aa_my_account':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Account implementation') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function aa_my_account_theme() {
+  $theme = [];
+  $theme['refund_application'] = [
+    'render element' => 'elements',
+    'file' => 'refund_application.page.inc',
+    'template' => 'refund_application',
+  ];
+  $theme['refund_application_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'refund_application.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function aa_my_account_theme_suggestions_refund_application(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#refund_application'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'refund_application__' . $sanitized_view_mode;
+  $suggestions[] = 'refund_application__' . $entity->bundle();
+  $suggestions[] = 'refund_application__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'refund_application__' . $entity->id();
+  $suggestions[] = 'refund_application__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}

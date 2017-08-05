@@ -1,0 +1,20 @@
+uuid: e75e9969-778a-431e-929d-8e27650c59a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - aa_pages
+  theme:
+    - aa_my_account_theme
+id: aa_my_account_theme_testimonialslandingpageblock
+theme: aa_my_account_theme
+region: header
+weight: 0
+provider: null
+plugin: testimonials_landing_page_block
+settings:
+  id: testimonials_landing_page_block
+  label: 'Testimonials landing page block'
+  provider: aa_pages
+  label_display: '0'
+visibility: {  }

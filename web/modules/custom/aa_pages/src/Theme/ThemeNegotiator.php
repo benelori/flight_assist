@@ -19,7 +19,9 @@ class ThemeNegotiator implements ThemeNegotiatorInterface {
       return 'aa_theme';
     }
 
-    return 'bartik';
+    if ($test == 'entity.user.canonical') {
+      return 'aa_my_account_theme';
+    }
   }
 
 

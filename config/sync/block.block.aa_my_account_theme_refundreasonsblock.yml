@@ -1,0 +1,26 @@
+uuid: 9bdf98d0-0176-42bc-8f2c-de71d4b5ff18
+langcode: en
+status: true
+dependencies:
+  module:
+    - aa_refund
+    - system
+  theme:
+    - aa_my_account_theme
+id: aa_my_account_theme_refundreasonsblock
+theme: aa_my_account_theme
+region: header
+weight: 0
+provider: null
+plugin: refund_reasons_block
+settings:
+  id: refund_reasons_block
+  label: 'Refund reasons block'
+  provider: aa_refund
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

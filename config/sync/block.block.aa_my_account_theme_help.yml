@@ -1,0 +1,22 @@
+uuid: 9b344202-e053-43c6-86f4-65df779fbdfb
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - aa_my_account_theme
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: aa_my_account_theme_help
+theme: aa_my_account_theme
+region: header
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

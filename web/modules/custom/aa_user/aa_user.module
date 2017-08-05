@@ -43,7 +43,7 @@ function aa_user_preprocess_menu__main(&$variables) {
   foreach ($menu_items as $key => $item) {
     /** @var \Drupal\Core\Url $url */
     $url = $item['url'];
-    if ($url->getRouteName() == 'aa_user.join_us_controller_build') {
+    if ($url->getRouteName() == 'aa_user.join_us_controller_build' && \Drupal::currentUser()->isAuthenticated()) {
       $toUnset = $key;
     }
   }

@@ -1,0 +1,22 @@
+uuid: ce71f714-866d-419b-9f56-72d3b29f7f3d
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - aa_my_account_theme
+_core:
+  default_config_hash: za-39d5WDUg6XvbyqSnuVYEeq6QM4qKJxW8MnoAha5A
+id: aa_my_account_theme_search
+theme: aa_my_account_theme
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+visibility: {  }

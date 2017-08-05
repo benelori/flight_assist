@@ -1,0 +1,5 @@
+name: My Account
+type: module
+description: My Account implementation
+core: 8.x
+package: Custom
