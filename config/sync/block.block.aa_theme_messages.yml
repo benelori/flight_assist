@@ -11,7 +11,7 @@ _core:
 id: aa_theme_messages
 theme: aa_theme
 region: header
-weight: -1
+weight: -2
 provider: null
 plugin: system_messages_block
 settings:

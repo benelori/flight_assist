@@ -13,19 +13,18 @@
  */
 #}
 {%
-  set classes = [
-    'region',
-    'region-' ~ region|clean_class,
-  ]
+set classes = [
+'region',
+'services_block',
+'padbot40',
+'region-' ~ region|clean_class,
+]
 %}
+
 {% if content %}
-  <header>
-    <div class="menu_block">
-      <div class="container clearfix">
-        <header{{ attributes.addClass(classes) }}>
-          {{ content }}
-        </header>
-      </div>
+  <section class="breadcrumbs_block clearfix parallax">
+    <div class="container center">
+      {{ content }}
     </div>
-  </header>
+  </section>
 {% endif %}

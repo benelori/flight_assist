@@ -8,7 +8,7 @@ _core:
   default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
 id: aa_theme_page_title
 theme: aa_theme
-region: content
+region: page_title
 weight: -9
 provider: null
 plugin: page_title_block

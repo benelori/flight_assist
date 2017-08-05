@@ -212,6 +212,7 @@ blockquote:before {content:'“'; position:absolute; left:15px; top:13px; font-s
 	background-repeat:no-repeat;
 	background-size:cover;
 }
+.breadcrumbs_block h1,
 .breadcrumbs_block h2 {
 	margin-bottom:15px;
 	line-height:80px;
@@ -2049,4 +2050,8 @@ input[type="color"]:focus {
 
 .page-title {
 	padding-top: 20px;
+}
+
+#content {
+	padding-top: 80px;
 }

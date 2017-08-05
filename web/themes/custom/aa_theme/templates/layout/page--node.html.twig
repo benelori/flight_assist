@@ -57,24 +57,43 @@
  * @ingroup themeable
  */
 #}
-{% extends "page.html.twig" %}
-
+{% block header %}
+  {% if page.header %}
+    {{ page.header }}
+  {% endif %}
+{% endblock %}
 {% block page %}
   <main id="page" role="main">
     {{ page.page_title }}
     {% block content %}
-      <section id="user" class="user-page">
+      <section id="content">
         <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
         <div class="layout-content container">
-          {{ page.content }}
+          <div class="row">
+            <div class="blog_block col-lg-9 col-md-9 padbot50">
+              {{ page.content }}
+            </div>
+            <div class="sidebar col-lg-3 col-md-3 padbot50">
+              {{ page.aside }}
+            </div>
+          </div>
         </div>{# /.layout-content #}
-
       </section>
     {% endblock %}
   </main>
 {% endblock %}
 
 {% block footer %}
+  <section id="contacts">
+  </section>
 
+  {% if page.footer %}
+    {{ page.footer }}
+  {% endif %}
+
+  <div id="map">
+    <a class="map_hide" href="javascript:void(0);" ><i class="fa fa-angle-right"></i><i class="fa fa-angle-left"></i></a>
+    <iframe src="http://maps.google.com/maps?f=q&amp;give%20a%20hand=s_q&amp;hl=en&amp;geocode=&amp;q=london&amp;sll=37.0625,-95.677068&amp;sspn=42.631141,90.263672&amp;ie=UTF8&amp;hq=&amp;hnear=London,+United+Kingdom&amp;ll=51.500141,-0.126257&amp;spn=0.026448,0.039396&amp;z=14&amp;output=embed" ></iframe>
+  </div>
 {% endblock %}
