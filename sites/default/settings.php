@@ -764,6 +764,9 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 if (file_exists($app_root . '/' . $site_path . '/settings.prod.php')) {
+  include $app_root . '/' . $site_path . '/settings.preprod.php';
+}
+if (file_exists($app_root . '/' . $site_path . '/settings.prod.php')) {
   include $app_root . '/' . $site_path . '/settings.prod.php';
 }
 $config_directories['sync'] = 'config/sync';
