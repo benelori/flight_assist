@@ -6,6 +6,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\PrependCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Datetime\DateFormatter;
+use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -19,6 +20,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @package Drupal\aa_refund\Form
  */
 class RefundMultiStepForm extends FormBase {
+
+  use DependencySerializationTrait;
 
   public function __construct(
     StepPluginManagerInterface $stepPluginManager

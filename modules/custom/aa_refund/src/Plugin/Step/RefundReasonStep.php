@@ -3,6 +3,7 @@
 namespace Drupal\aa_refund\Plugin\Step;
 
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Form\FormInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\dcc_multistep\StepPluginBase;
@@ -18,6 +19,8 @@ use Drupal\dcc_multistep\StepPluginBase;
  * )
  */
 class RefundReasonStep extends StepPluginBase {
+
+  use DependencySerializationTrait;
 
   const DELAYED = 'Delayed';
   const CANCELED = 'Canceled';

@@ -2,6 +2,7 @@
 
 namespace Drupal\aa_refund\Plugin\Step;
 
+use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Form\FormInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
@@ -19,6 +20,7 @@ use Drupal\dcc_multistep\StepPluginBase;
  */
 class RoutesStep extends StepPluginBase {
 
+  use DependencySerializationTrait;
   /**
    * {@inheritdoc}
    */

@@ -2,6 +2,7 @@
 
 namespace Drupal\aa_refund\Plugin\Step;
 
+use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\Core\Form\FormInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\dcc_multistep\StepPluginBase;
@@ -18,6 +19,7 @@ use Drupal\dcc_multistep\StepPluginBase;
  */
 class BadRouteStep extends StepPluginBase {
 
+  use DependencySerializationTrait;
   public function buildStep(
     FormStateInterface $form_state,
     FormInterface $form
