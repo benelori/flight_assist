@@ -1,0 +1,16 @@
+uuid: 1fd91f60-96e9-4a63-967b-89bc0364055e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.refund_reason
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.refund_reason
+target_entity_type_id: node
+target_bundle: refund_reason
+default_langcode: site_default
+language_alterable: true

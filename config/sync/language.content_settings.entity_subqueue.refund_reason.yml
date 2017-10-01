@@ -1,0 +1,11 @@
+uuid: 26511c1d-b8b9-4b43-87a8-ab55ed50e9c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.refund_reason
+id: entity_subqueue.refund_reason
+target_entity_type_id: entity_subqueue
+target_bundle: refund_reason
+default_langcode: site_default
+language_alterable: false

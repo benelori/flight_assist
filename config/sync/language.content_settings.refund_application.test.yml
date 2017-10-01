@@ -1,0 +1,11 @@
+uuid: 7abb7b80-ab39-44e1-99ca-df88891cced2
+langcode: en
+status: true
+dependencies:
+  config:
+    - aa_my_account.refund_application_type.test
+id: refund_application.test
+target_entity_type_id: refund_application
+target_bundle: test
+default_langcode: site_default
+language_alterable: false
