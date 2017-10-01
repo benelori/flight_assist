@@ -1,0 +1,85 @@
+<?php
+
+/**
+ * @file
+ * Defines schema and other install-related items.
+ */
+
+/**
+ * Implements hook_field_schema().
+ */
+function esign_field_schema($field) {
+  // Define the column schema.
+  $columns = array(
+    'esignature' => array(
+      'type' => 'text',
+      'size' => 'big',
+      'not_null' => FALSE,
+    ),
+    'signer_name' => array(
+      'type' => 'varchar',
+      'length' => 255,
+      'not_null' => FALSE,
+    ),
+    'signer_title' => array(
+      'type' => 'varchar',
+      'length' => 255,
+      'not_null' => FALSE,
+    ),
+    'created' => array(
+      'type' => 'int',
+      'size' => 'big',
+      'not_null' => FALSE,
+    ),
+  );
+
+  // Define the indexes.
+  $indexes = array(
+    'signer_name' => array('signer_name'),
+    'signer_title' => array('signer_title'),
+    'created' => array('created'),
+  );
+
+  return array(
+    'columns' => $columns,
+    'indexes' => $indexes,
+  );
+}
+
+/**
+ * Implements hook_requirements().
+ *
+ * Makes sure that the Signature Pad library is installed.
+ */
+function esign_requirements($phase) {
+  $t = get_t();
+  $requirements = array();
+
+  if ($phase == 'runtime') {
+    $requirements['signature_pad'] = array(
+      'title' => $t('Signature Pad'),
+    );
+
+    $library = libraries_detect('signature_pad');
+
+    if (isset($library['error'])) {
+      $requirements['signature_pad']['severity'] = REQUIREMENT_ERROR;
+      $requirements['signature_pad']['value'] = $library['error message'];
+    }
+    elseif(substr($library['version'], 0, 4) != '1.5.') {
+      $requirements['signature_pad']['severity'] = REQUIREMENT_ERROR;
+      $requirements['signature_pad']['value'] = t('SignaturePad must be version 1.6.x; you are running @version. <a href="@url">Download the correct version</a>', array(
+        '@version' => $library['version'],
+        '@url' => $library['download url'],
+      ));
+    }
+    else {
+      $requirements['signature_pad']['severity'] = REQUIREMENT_OK;
+      $requirements['signature_pad']['value'] = $t('@version (<a href="@url">more information</a>)', array(
+        '@version' => $library['version'],
+        '@url' => $library['download url'],
+      ));
+    }
+  }
+  return $requirements;
+}

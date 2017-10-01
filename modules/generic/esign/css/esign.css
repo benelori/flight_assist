@@ -1,0 +1,6 @@
+.esign_panel canvas {
+  border: 1px solid #eeeeee;
+  cursor: crosshair;
+  width: 100%;
+  min-height: 50mm;
+}

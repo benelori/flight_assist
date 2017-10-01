@@ -40,6 +40,7 @@ function aa_user_register_submit(array $form, FormStateInterface $form_state) {
  */
 function aa_user_preprocess_menu__main(&$variables) {
   $menu_items = &$variables['items'];
+  $toUnset = NULL;
   foreach ($menu_items as $key => $item) {
     /** @var \Drupal\Core\Url $url */
     $url = $item['url'];
@@ -47,7 +48,7 @@ function aa_user_preprocess_menu__main(&$variables) {
       $toUnset = $key;
     }
   }
-  if (isset($menu_items[$toUnset])) {
+  if ($toUnset && isset($menu_items[$toUnset])) {
     unset($menu_items[$toUnset]);
   }
 }

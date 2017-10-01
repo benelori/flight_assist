@@ -1,0 +1,34 @@
+aa_refund.refund_multi_step_form:
+  path: '/submit-refund-claim'
+  defaults:
+    _form: '\Drupal\aa_refund\Form\RefundMultiStepForm'
+    _title: 'RefundMultiStepForm'
+  requirements:
+    _access: 'TRUE'
+  
+
+aa_refund.refund_additional_information_form:
+  path: '/refund-additional-info'
+  defaults:
+    _form: '\Drupal\aa_refund\Form\RefundAdditionalInformationForm'
+    _title: 'RefundAdditionalInformationForm'
+  requirements:
+    _access: 'TRUE'
+  
+
+aa_refund.refund_personal_info_form:
+  path: '/refund-submit-personal-info'
+  defaults:
+    _form: '\Drupal\aa_refund\Form\RefundPersonalInfoForm'
+    _title: 'RefundPersonalInfoForm'
+  requirements:
+    _access: 'TRUE'
+  
+
+aa_refund.refund_register_form_register:
+  path: '/refund-register'
+  defaults:
+    _controller: '\Drupal\aa_refund\Controller\RefundRegisterForm::register'
+    _title: 'register'
+  requirements:
+    _permission: 'access content'

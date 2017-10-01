@@ -46,7 +46,7 @@ use Drupal\user\UserInterface;
  *     "status" = "status",
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/refund_application/{refund_application}",
+ *     "canonical" = "/refund_application/{refund_application}",
  *     "add-page" = "/apply-for-refund",
  *     "add-form" = "/apply-for-refund/{refund_application_type}",
  *     "edit-form" = "/admin/structure/refund_application/{refund_application}/edit",
@@ -176,6 +176,12 @@ class RefundApplication extends ContentEntityBase implements RefundApplicationIn
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
+
+    $fields['refund_submission_data'] = BaseFieldDefinition::create('string_long')
+      ->setLabel(t('Data'))
+      ->setDescription(t('The name of the Refund application entity.'))
+      ->setSetting('case_sensitive', TRUE)
+      ->setRequired(TRUE);
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))

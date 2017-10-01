@@ -1,0 +1,3 @@
+services:
+  iata_codes_api.codes_loader:
+    class: Drupal\iata_codes_api\Service\IataCodesLoader
