@@ -1,0 +1,7 @@
+iata_codes_api.iata_codes_api_key_form:
+  title: 'Iata Codes'
+  route_name: iata_codes_api.iata_codes_api_key_form
+  description: 'Iata Codes API configuration.'
+  parent: system.admin_config_system
+  weight: 99
+

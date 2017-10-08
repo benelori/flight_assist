@@ -5,6 +5,7 @@
  * Contains aa_refund.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
@@ -39,6 +40,11 @@ function aa_refund_theme() {
         'titles' => NULL,
       ],
     ],
+    'refund_register' => [
+      'variables' => [
+        'register' => NULL,
+      ],
+    ],
   ];
 }
 
@@ -50,7 +56,42 @@ function aa_refund_form_entity_subqueue_refund_reason_edit_form_alter(
   \Drupal\Core\Form\FormStateInterface $form_state,
   $form_id
 ) {
+  $form['actions']['submit']['#submit'][] = 'aa_refund_reason_subqueue_form_submit';
+}
+
+function aa_refund_reason_subqueue_form_submit(&$form, FormStateInterface $formState) {
   /** @var \Drupal\Core\Cache\CacheTagsInvalidatorInterface $service */
   $service = \Drupal::service('cache_tags.invalidator');
   $service->invalidateTags(['refund']);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function aa_refund_form_user_register_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  $form['actions']['submit']['#submit'][] = 'aa_refund_submit';
+}
+
+function aa_refund_submit(&$form,
+  \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $values = $form_state->cleanValues()->getValues();
+  $uid = $values['uid'];
+  $eligibility = unserialize($_SESSION['eligibility']);
+
+  $storage = \Drupal::entityTypeManager()->getStorage('refund_application');
+
+  $entity = $storage->create([
+    'user_id' => $uid,
+    'name' => 'Test ' . $uid,
+    'refund_submission_data' => $_SESSION['eligibility'],
+    'type' => 'test',
+  ]);
+
+  $entity->save();
+  drupal_set_message('Your refund application has been submitted. Please follow the instructions to log in to your account.');
 }

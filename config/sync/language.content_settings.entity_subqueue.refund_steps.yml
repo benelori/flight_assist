@@ -1,0 +1,11 @@
+uuid: 10a1304e-9809-448b-90ac-e3f08989f1ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.refund_steps
+id: entity_subqueue.refund_steps
+target_entity_type_id: entity_subqueue
+target_bundle: refund_steps
+default_langcode: site_default
+language_alterable: false

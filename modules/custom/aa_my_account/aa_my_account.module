@@ -38,6 +38,20 @@ function aa_my_account_theme() {
     'variables' => ['content' => NULL],
     'file' => 'refund_application.page.inc',
   ];
+
+  $theme['refund_data'] = [
+    'variables' => [
+      'first_name' => NULL,
+      'last_name' => NULL,
+      'refund_reason' => NULL,
+      'company_reason' => NULL,
+      'delay_time' => NULL,
+      'offending_airline' => NULL,
+      'route' => NULL,
+      'flight_number' => NULL,
+      'optional_description' => NULL,
+    ],
+  ];
   return $theme;
 }
 

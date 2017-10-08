@@ -4,8 +4,10 @@ status: false
 dependencies:
   config:
     - core.entity_form_mode.user.register
+    - field.field.user.user.field_address
     - field.field.user.user.user_picture
   module:
+    - path
     - user
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
@@ -19,8 +21,16 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   contact: true
+  field_address: true
+  langcode: true
   language: true
   timezone: true
   user_picture: true

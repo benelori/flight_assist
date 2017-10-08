@@ -1,0 +1,16 @@
+<div class="flexslider top_slider">
+  {% if items %}
+    <ul class="slides">
+      {% for item in items %}
+        <li class="slide{{ loop.index }}" style="background-image: url('{{ item.image }}');">
+          <div class="flex_caption1">
+            {{ item.node|without('field_image') }}
+          </div>
+          {% if item.read_more %}
+            {{ item.read_more }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

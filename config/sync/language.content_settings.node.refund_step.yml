@@ -1,0 +1,16 @@
+uuid: 0621fe7f-60cc-4503-8d43-8cb9765d31f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.refund_step
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.refund_step
+target_entity_type_id: node
+target_bundle: refund_step
+default_langcode: site_default
+language_alterable: true

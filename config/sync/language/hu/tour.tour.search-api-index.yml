@@ -1,0 +1,7 @@
+tips:
+  search-api-index-status:
+    label: Állapot
+  search-api-index-tracker:
+    label: Követő
+  search-api-index-server:
+    label: Kiszolgáló

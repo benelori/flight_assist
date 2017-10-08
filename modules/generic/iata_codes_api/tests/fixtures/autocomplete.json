@@ -1,0 +1,87 @@
+{
+  "request": {
+    "lang": "en",
+    "currency": "USD",
+    "time": 19,
+    "id": 1506779477310,
+    "server": "production",
+    "host": "iatacodes.org",
+    "pid": 13541,
+    "key": {
+      "id": 9516,
+      "api_key": "dda08c5d-87ab-470a-9358-b61b208dc481",
+      "type": "free",
+      "expired": null,
+      "registered": "2017-09-30T13:26:53.000Z",
+      "limits_by_hour": 2500,
+      "limits_by_minute": 250,
+      "demo_methods": [],
+      "usage_by_hour": 3,
+      "usage_by_minute": 1
+    },
+    "params": {
+      "query": "madrid",
+      "lang": "en"
+    },
+    "version": 6,
+    "method": "autocomplete",
+    "client": {
+      "country_code": "RO",
+      "country": "Romania",
+      "city": "Cluj-Napoca",
+      "lat": 46.7667,
+      "lng": 23.6,
+      "ip": "188.24.71.31",
+      "device": {
+        "type": "desktop"
+      },
+      "agent": {
+        "browser": "Chromium",
+        "os": "Linux 64",
+        "platform": "Linux"
+      }
+    }
+  },
+  "response": {
+    "airports": [
+      {
+        "code": "MAD",
+        "name": "Barajas",
+        "country_name": "Spain"
+      }
+    ],
+    "cities": [
+      {
+        "code": "MAD",
+        "name": "Madrid",
+        "country_name": "Spain"
+      }
+    ],
+    "countries": [],
+    "cities_by_countries": [],
+    "airports_by_countries": [],
+    "airports_by_cities": [
+      {
+        "code": "MAD",
+        "name": "Barajas",
+        "country_name": "Spain"
+      },
+      {
+        "code": "TOJ",
+        "name": "Torrejon AFB",
+        "country_name": "Spain"
+      },
+      {
+        "code": "XOC",
+        "name": "Atocha Railway St.",
+        "country_name": "Spain"
+      },
+      {
+        "code": "XTI",
+        "name": "Chamartin Railway St.",
+        "country_name": "Spain"
+      }
+    ],
+    "cities_by_airports": []
+  }
+}

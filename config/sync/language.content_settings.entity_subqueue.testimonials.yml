@@ -1,0 +1,11 @@
+uuid: 41bd0767-c8c1-429f-9b32-b784eeeb0ae5
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.testimonials
+id: entity_subqueue.testimonials
+target_entity_type_id: entity_subqueue
+target_bundle: testimonials
+default_langcode: site_default
+language_alterable: false

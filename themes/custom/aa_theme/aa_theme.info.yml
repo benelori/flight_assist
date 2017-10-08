@@ -10,6 +10,7 @@ libraries:
 regions:
   header: 'Header'
   home: 'Home'
+  slider: 'Slider'
   refunds: 'Refunds'
   refund_steps: 'Refund Steps'
   about: 'About Us'

@@ -1,0 +1,374 @@
+<?php
+
+/**
+ * @file
+ * Defines all hooks and functions to manage the e-sign field.
+ *
+ * This is for both content(nodes) as well as the FieldAPI.
+ */
+
+/**
+ * Implements hook_field_info().
+ */
+function esign_field_info() {
+  return array(
+    'esign_signature' => array(
+      'label' => t('E-Signature'),
+      'description' => t('An electronic signature'),
+      'default_widget' => 'esign_signature_widget',
+      'default_formatter' => 'esign_formatter',
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function esign_field_formatter_info() {
+  return array(
+    'esign_formatter' => array(
+      'label' => t('E-Signature Formatter'),
+      'description' => t('Formats the display of an electronic signature.'),
+      'field types' => array('esign_signature'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_info().
+ */
+function esign_field_widget_info() {
+  // Include the default settings, too!
+  return array(
+    'esign_signature_widget' => array(
+      'label' => t('E-Signature'),
+      'field types' => array('esign_signature'),
+      'behaviors' => array(
+        'default value' => FIELD_BEHAVIOR_NONE,
+      ),
+      'settings' => array(
+        'dotSize' => 1,
+        'minWidth' => 0.5,
+        'maxWidth' => 2.5,
+        'backgroundColor' => 'rgba(0,0,0,0)',
+        'penColor' => 'rgba(0,0,0,1)',
+        'velocityFilterWeight' => 0.7,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_settings_form().
+ */
+function esign_field_widget_settings_form($field, $instance) {
+  $widget = $instance['widget'];
+  $settings = $widget['settings']['advanced_settings'];
+
+  $form = array();
+
+  if ($widget['type'] == 'esign_signature_widget') {
+    $form['advanced_settings'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Advanced Settings'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+
+    $form['advanced_settings']['dotSize'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Dot Size'),
+      '#default_value' => $settings['dotSize'],
+      '#element_validate' => array('element_validate_number'),
+      '#required' => TRUE,
+      '#size' => 5,
+      '#description' => t('Radius of a single dot.'),
+    );
+
+    $form['advanced_settings']['minWidth'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Minimum Width'),
+      '#default_value' => $settings['minWidth'],
+      '#element_validate' => array('element_validate_number'),
+      '#required' => TRUE,
+      '#size' => 5,
+      '#description' => t('Minimum width of a line'),
+    );
+
+    $form['advanced_settings']['maxWidth'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Maximum Width'),
+      '#default_value' => $settings['maxWidth'],
+      '#element_validate' => array('element_validate_number'),
+      '#required' => TRUE,
+      '#size' => 5,
+      '#description' => t('Maximum width of a line.'),
+    );
+
+    $form['advanced_settings']['backgroundColor'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Background Color'),
+      '#default_value' => $settings['backgroundColor'],
+      '#required' => TRUE,
+      '#size' => 15,
+      '#description' => t('Color used to clear the background. Use the format rgba(#,#,#,#).'),
+    );
+
+    $form['advanced_settings']['penColor'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Pen Color'),
+      '#default_value' => $settings['penColor'],
+      '#required' => TRUE,
+      '#size' => 15,
+      '#description' => t('Color used to draw the lines. Use the format rgba(#,#,#,#).'),
+    );
+
+    $form['advanced_settings']['velocityFilterWeight'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Velocity Filter Weight'),
+      '#default_value' => $settings['velocityFilterWeight'],
+      '#element_validate' => array('element_validate_number'),
+      '#required' => TRUE,
+      '#size' => 5,
+      '#description' => t('Weight used to modify new velocity based on the previous velocity.'),
+    );
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_field_widget_form().
+ */
+function esign_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  // Parse the settings into a string.
+  $settings = $instance['widget']['settings']['advanced_settings'];
+
+  // We only need this for this field.
+  switch ($instance['widget']['type']) {
+    case 'esign_signature_widget':
+      if (isset($field['cardinality']) && $field['cardinality'] == 1) {
+        $element['#type'] = 'fieldset';
+      }
+      $element = esign_signature_form_base($langcode, $items, $delta, $element, $settings);
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_field_is_empty().
+ *
+ * @todo: Figure out what this does, other than cause problems.
+ */
+function esign_field_is_empty($item, $field) {
+  if (empty($item['esignature']) && empty($item['signer_name']) && empty($item['signer_title'])) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * Implements hook_libraries_info().
+ */
+function esign_libraries_info() {
+  $libraries['signature_pad'] = array(
+    'name' => 'Signature Pad',
+    'vendor url' => 'https://github.com/szimek/signature_pad',
+    'download url' => 'https://github.com/szimek/signature_pad/archive/master.zip',
+    'version arguments' => array(
+      'file' => 'example/js/signature_pad.js',
+      'pattern' => '@Signature Pad v([0-9a-zA-Z\.-]+)@',
+      'lines' => 20,
+    ),
+    'files' => array(
+      'js' => array('example/js/signature_pad.js'),
+    ),
+  );
+  return $libraries;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function esign_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, &$items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    case 'esign_formatter':
+      foreach ($items as $key => $value) {
+        $element[$key] = array(
+          '#type' => 'markup',
+          '#markup' => t('<div class="esignature"><img src="!signature" alt="@signer_name" /></div><div class="signer_name">@signer_name</div><div class="signer_title">@signer_title</div><div class="created">@created</div><br/>', array(
+            '!signature' => $value['esignature'],
+            '@signer_name' => $value['signer_name'],
+            '@signer_title' => $value['signer_title'],
+            '@created' => format_date($value['created']),
+          )),
+        );
+      }
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_element_info().
+ */
+function esign_element_info() {
+  return array(
+    'esign_signature' => array(
+      '#input' => TRUE,
+      '#process' => array('esign_form_process'),
+      '#tree' => TRUE,
+      '#esign_options' => array(),
+    ),
+  );
+}
+
+/**
+ * Element processing from hook_element_info.
+ *
+ * Helps generate the field for FAPI.
+ */
+function esign_form_process($element, $form_state, $complete_form = array()) {
+  // Get the default settings.
+  $settings = esign_field_widget_info();
+  $settings = $settings['esign_signature_widget']['settings'];
+
+  // Override the default settings with the ones passed in via the form.
+  if (isset($element['#esign_options']) && count($element['#esign_options']) > 0) {
+    $settings = array_merge($settings, $element['#esign_options']);
+  }
+  $element = esign_signature_form_base(LANGUAGE_NONE, array(), $element['#name'], $element, $settings);
+  $element['#tree'] = TRUE;
+  return $element;
+}
+
+/**
+ * Callback for the signature form base.
+ *
+ * @todo: Elimnate extraneous JS code.
+ */
+function esign_signature_form_base($langcode, $items, $delta, $element, $settings) {
+  $field_name = $element['#field_name'];
+
+  if (isset($element['#field_name'])) {
+    $field_name = $element['#field_name'] . '[' . $langcode . '][' . $delta . ']';
+  }
+  else {
+    $field_name = $element['#name'];
+  }
+
+  $title = t('Signature');
+  if (isset($element['#title']) && $element['#title']) {
+    $title = check_plain($element['#title']);
+  }
+
+  // Load the signature pad library.
+  if (($library = libraries_load('signature_pad')) && !empty($library['loaded'])) {
+    drupal_add_js(drupal_get_path('module', 'esign') . '/js/esign.js');
+  }
+  else {
+    watchdog('esign', 'Failed to load Signature Pad library.', array(), WATCHDOG_ERROR);
+    form_set_error(t('There was an error loading the Signature Pad library.'));
+  }
+
+  $description = '';
+  if ($element['#description']) {
+    $description = t('<div class="description">!description</div>', array(
+      '!description' => str_replace("\r\n", "<br />", $element['#description']),
+    ));
+  }
+  $markup = '<div class="esign_panel esign_panel_' . $delta . '" data-signature="' . urlencode(isset($items[$delta]['esignature']) ? $items[$delta]['esignature'] : '') . '">' . $description . '<canvas></canvas></div>';
+
+  $element['esignature_panel'] = array(
+    '#prefix' => '<div class="esign_container" data-settings=\'' . json_encode($settings) . '\'>',
+    '#type' => 'item',
+    '#title' => $title,
+    '#markup' => $markup,
+  );
+
+  $element['esignature'] = array(
+    '#type' => 'hidden',
+    '#attributes' => array(
+      'class' => array('signature-storage'),
+    ),
+    '#default_value' => isset($items[$delta]['esignature']) ? $items[$delta]['esignature'] : '',
+  );
+
+  $element['signer_name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Signer Name'),
+    '#default_value' => isset($items[$delta]['signer_name']) ? $items[$delta]['signer_name'] : '',
+    '#required' => $element['#required'],
+    '#size' => 60,
+    '#attributes' => array('maxlength' => 255),
+  );
+
+  $element['signer_title'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Signer Title'),
+    '#default_value' => isset($items[$delta]['signer_title']) ? $items[$delta]['signer_title'] : '',
+    '#required' => $element['#required'],
+    '#size' => 60,
+    '#attributes' => array('maxlength' => 255),
+  );
+
+  $element['created'] = array(
+    '#type' => 'hidden',
+    '#default_value' => isset($items[$delta]['created']) ? $items[$delta]['created'] : strtotime('now'),
+    '#suffix' => '</div>',
+    '#attributes' => array(
+      'class' => array('signature-created'),
+    ),
+  );
+
+  if (isset($element['#value']) && is_array($element['#value'])) {
+    foreach ($element['#value'] as $field_name => $default_value) {
+      $element[$field_name]['#default_value'] = $default_value;
+    }
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_help().
+ *
+ * Cribbed from https://www.drupal.org/node/161085
+ */
+function esign_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#MYMODULE':
+
+      $filepath = dirname(__FILE__) . '/README.md';
+      if (file_exists($filepath)) {
+        $readme = file_get_contents($filepath);
+      }
+      else {
+        $filepath = dirname(__FILE__) . '/README.txt';
+        if (file_exists($filepath)) {
+          $readme = file_get_contents($filepath);
+        }
+      }
+      if (!isset($readme)) {
+        return NULL;
+      }
+      if (module_exists('markdown')) {
+        $filters = module_invoke('markdown', 'filter_info');
+        $info = $filters['filter_markdown'];
+
+        if (function_exists($info['process callback'])) {
+          $output = $info['process callback']($readme, NULL);
+        }
+        else {
+          $output = '<pre>' . $readme . '</pre>';
+        }
+      }
+      else {
+        $output = '<pre>' . $readme . '</pre>';
+      }
+
+      return $output;
+  }
+}

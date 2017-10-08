@@ -1,0 +1,6 @@
+<?php
+
+function aa_refund_update_8001() {
+  $entityDefinitionUpdateManager = \Drupal::entityDefinitionUpdateManager();
+  $entityDefinitionUpdateManager->applyUpdates();
+}

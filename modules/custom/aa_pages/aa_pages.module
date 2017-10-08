@@ -5,6 +5,7 @@
  * Contains aa_pages.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
@@ -39,5 +40,27 @@ function aa_pages_theme() {
         'items' => NULL,
       ],
     ],
+    'slider' => [
+      'variables' => [
+        'items' => NULL,
+      ],
+    ],
   ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function aa_pages_form_entity_subqueue_slider_edit_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  $form['actions']['submit']['#submit'][] = 'aa_pages_slider_subqueue_form_submit';
+}
+
+function aa_pages_slider_subqueue_form_submit(&$form, FormStateInterface $formState) {
+  /** @var \Drupal\Core\Cache\CacheTagsInvalidatorInterface $service */
+  $service = \Drupal::service('cache_tags.invalidator');
+  $service->invalidateTags(['slider']);
 }
