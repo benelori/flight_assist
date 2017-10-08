@@ -305,14 +305,9 @@ html[xmlns] .slides {display: block;}
 	height:100%;
 }
 
-
-
-
-
 /* Caption */
 .top_slider .slide1 {
 	height:100%;
-	background-image:url(../images/slider/slide1_bg.jpg);
 	background-size:cover;
 	background-attachment:fixed !important;
 }
@@ -339,7 +334,6 @@ html[xmlns] .slides {display: block;}
 
 .top_slider .slide2 {
 	height:100%;
-	background-image:url(../images/slider/slide2_bg.jpg);
 	background-size:cover;
 	background-attachment:fixed !important;
 }
@@ -365,7 +359,6 @@ html[xmlns] .slides {display: block;}
 
 .top_slider .slide3 {
 	height:100%;
-	background-image:url(../images/slider/slide3_bg.jpg);
 	background-size:cover;
 	background-attachment:fixed !important;
 }
