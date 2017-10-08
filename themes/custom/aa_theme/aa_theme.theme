@@ -4,3 +4,7 @@
  * @file
  * Contains theme override functions and preprocess functions.
  */
+
+function aa_theme_preprocess_page(&$vars) {
+  $test =0;
+}

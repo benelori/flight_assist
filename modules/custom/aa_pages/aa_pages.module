@@ -45,6 +45,11 @@ function aa_pages_theme() {
         'items' => NULL,
       ],
     ],
+    'contact_form' => [
+      'variables' => [
+        'form' => NULL,
+      ],
+    ],
   ];
 }
 

@@ -1,0 +1,20 @@
+uuid: f54fab03-b62d-4d76-bb54-3a6f79918b1e
+langcode: en
+status: true
+dependencies:
+  module:
+    - aa_pages
+  theme:
+    - aa_theme
+id: contactformblock
+theme: aa_theme
+region: footer
+weight: 0
+provider: null
+plugin: aa_contact_form_block
+settings:
+  id: aa_contact_form_block
+  label: 'Contact form block'
+  provider: aa_pages
+  label_display: '0'
+visibility: {  }
