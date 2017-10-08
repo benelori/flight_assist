@@ -1,0 +1,27 @@
+uuid: 6bb1a75b-c4f3-4efb-9ace-5e58218b14bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_test
+field_name: field_test
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: test
+    -
+      value: '2'
+      label: lol
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

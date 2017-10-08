@@ -1,0 +1,26 @@
+uuid: 8e4060e8-5032-44ba-ad37-33b1db16267b
+langcode: en
+status: true
+dependencies:
+  module:
+    - aa_pages
+    - system
+  theme:
+    - aa_theme
+id: homepagesliderblock
+theme: aa_theme
+region: slider
+weight: 0
+provider: null
+plugin: aa_home_page_slider_block
+settings:
+  id: aa_home_page_slider_block
+  label: 'Home page slider block'
+  provider: aa_pages
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
