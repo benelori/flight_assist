@@ -84,9 +84,17 @@ function aa_pages_form_contact_message_feedback_form_alter(
     t('Denied boarding')->__toString() => t('Denied boarding'),
     t('Flight Disruption')->__toString() => t('Flight Disruption'),
   ];
-  $form['subject'] = [
+  $form['custom_subject'] = [
     '#type' => 'select',
     '#title' => t('Subject'),
     '#options' => $options,
+    '#weight' => -1000,
   ];
+
+  array_unshift($form['actions']['submit']['#submit'], '_aa_pages_contact_form_submit');
+}
+
+function _aa_pages_contact_form_submit(&$form, FormStateInterface $formState) {
+  $customSubject = $formState->getValue('custom_subject');
+  $formState->setValue('subject', [$customSubject]);
 }
