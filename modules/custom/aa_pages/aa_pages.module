@@ -69,3 +69,24 @@ function aa_pages_slider_subqueue_form_submit(&$form, FormStateInterface $formSt
   $service = \Drupal::service('cache_tags.invalidator');
   $service->invalidateTags(['slider']);
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function aa_pages_form_contact_message_feedback_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  $options = [
+    t('Flight Delay')->__toString() => t('Flight Delay'),
+    t('Flight Cancellation')->__toString() => t('Flight Cancellation'),
+    t('Denied boarding')->__toString() => t('Denied boarding'),
+    t('Flight Disruption')->__toString() => t('Flight Disruption'),
+  ];
+  $form['subject'] = [
+    '#type' => 'select',
+    '#title' => t('Subject'),
+    '#options' => $options,
+  ];
+}
