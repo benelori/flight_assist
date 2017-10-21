@@ -2127,3 +2127,16 @@ ul.language-dropdown-menu li{
 .node__content li {
 	list-style: inside;
 }
+
+.logo-container {
+	display: block;
+	width: 240px;
+}
+.logo-container h1 {
+	line-height: 35px;
+	font-size: 25px;
+}
+
+.logo-img {
+	height: 50px;
+}

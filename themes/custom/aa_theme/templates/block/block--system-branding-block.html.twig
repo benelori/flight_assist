@@ -15,19 +15,19 @@
 #}
 {% block content %}
   <!-- LOGO -->
-  <div class="logo pull-left">
-    {% if site_logo %}
-      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-logo">
-        <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
-      </a>
-    {% endif %}
-    {% if site_name %}
-      <div class="site-name">
-        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
-      </div>
-    {% endif %}
-    {% if site_slogan %}
-      <div class="site-slogan">{{ site_slogan }}</div>
-    {% endif %}
-  </div><!-- //LOGO -->
+  <div class="logo pull-left logo-container">
+    <div class="logo-img">
+      {% if site_logo %}
+        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-logo">
+          <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+        </a>
+      {% endif %}
+
+    </div>
+    <div class="slogan">
+      {% if site_slogan %}
+        <h1 class="site-slogan">{{ site_slogan }}</h1>
+      {% endif %}
+    </div>
+  </div>
 {% endblock %}
