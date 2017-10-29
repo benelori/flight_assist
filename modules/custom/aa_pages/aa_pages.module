@@ -96,5 +96,6 @@ function aa_pages_form_contact_message_feedback_form_alter(
 
 function _aa_pages_contact_form_submit(&$form, FormStateInterface $formState) {
   $customSubject = $formState->getValue('custom_subject');
-  $formState->setValue('subject', [$customSubject]);
+  $name = $formState->getValue('name');
+  $formState->setValue('subject', [$name . ' - ' . $customSubject]);
 }
