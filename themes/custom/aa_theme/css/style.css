@@ -97,6 +97,9 @@ form legend {
 	border: 0;
 }
 
+[class^='select2'] {
+	border-radius: 0px !important;
+}
 
 .margbot0 {margin-bottom:0;}
 .margbot5 {margin-bottom:5px !important;}
@@ -185,7 +188,11 @@ blockquote:before {content:'“'; position:absolute; left:15px; top:13px; font-s
 
 
 
-
+.contact-message-feedback-form {
+	width: 70%;
+	display: block;
+	margin: 0 auto;
+}
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -1322,10 +1329,11 @@ input[type="email"] {
 	font-style:normal;
 	border-radius: 0;	
 	background: none;
-	border: 2px solid #242424;
+	border: 1px solid #242424;
 	box-shadow: none;
 	transition: border-color 0.3s ease-in-out; 
 	-webkit-transition: border-color 0.3s ease-in-out;
+	height: 30px;
 }
 textarea {
 	overflow:hidden;
@@ -1366,14 +1374,14 @@ input[type="color"]:focus {
 	cursor:pointer;
 	margin: 0 7px 10px 0;
 	padding:13px 30px;
-	border: 2px solid #242424;
+	border: 1px solid #242424;
 	border-radius: 0;
-	box-shadow: 0;
+	box-shadow: none;
 	text-shadow:none;
 	text-decoration:none;
 	text-transform:uppercase;
 	font-family: 'Roboto', sans-serif;
-	font-weight:900;
+	font-weight: normal;
 	line-height:20px;
 	font-size:13px;
 	color:#333;

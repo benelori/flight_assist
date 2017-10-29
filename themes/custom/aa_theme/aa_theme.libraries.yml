@@ -3,6 +3,7 @@ global-styling:
   css:
     theme:
       css/bootstrap.min.css: {}
+      css/select2.min.css: {}
       css/flexslider.css: {}
       css/prettyPhoto.css: {}
       css/animate.css: { media: all }
@@ -10,6 +11,7 @@ global-styling:
       css/style.css: {}
   js:
     js/bootstrap.min.js: {}
+    js/select2.min.js: {}
     js/jquery.prettyPhoto.js: {}
     js/jquery.nicescroll.min.js: {}
     js/superfish.min.js: {}

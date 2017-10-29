@@ -18,5 +18,11 @@
     }
   };
 
+  Drupal.behaviors.select2 = {
+    attach: function (context, settings) {
+      $('.form-select').select2();
+    }
+  };
+
 })(jQuery, Drupal, drupalSettings);
 
