@@ -19,12 +19,10 @@
   ]
 %}
 {% if content %}
-  <header>
+  <header{{ attributes.addClass(classes) }}>
     <div class="menu_block">
       <div class="container clearfix">
-        <header{{ attributes.addClass(classes) }}>
-          {{ content }}
-        </header>
+        {{ content }}
       </div>
     </div>
   </header>
