@@ -69,7 +69,33 @@ img {
 a {color:#999; transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out;}
 a:hover, a:focus {text-decoration:none; color:#333;}
 
+form label {
+	display: inline-block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
 
+form .label {
+	display: inline-block;
+	margin-bottom: 5px;
+	font-weight: bold !important;
+	font-family: 'Roboto',sans-serif;
+	font-size: 13px;
+	line-height: 20px;
+	color: #666;
+	padding: 0;
+}
+
+form legend {
+	display: inline-block;
+	margin-bottom: 5px;
+	font-weight: bold !important;
+	font-family: 'Roboto',sans-serif;
+	font-size: 13px;
+	line-height: 20px;
+	color: #666;
+	border: 0;
+}
 
 
 .margbot0 {margin-bottom:0;}
