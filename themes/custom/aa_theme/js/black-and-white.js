@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
 });
 
 // BlackAndWhite
-$(window).load(function(){
+$(window).on('load', function(){
   $('.client_img').BlackAndWhite({
     hoverEffect : true, // default true
     // set the path to BnWWorker.js for a superfast implementation

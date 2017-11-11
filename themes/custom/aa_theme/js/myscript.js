@@ -5,11 +5,12 @@ window.jQuery = window.$ = jQuery;
 /*-----------------------------------------------------------------------------------*/
 /*	PRELOADER
 /*-----------------------------------------------------------------------------------*/
-jQuery(window).load(function () {
-	//Preloader
-	setTimeout("jQuery('#preloader').animate({'opacity' : '0'},300,function(){jQuery('#preloader').hide()})",800);
-	setTimeout("jQuery('.preloader_hide, .selector_open').animate({'opacity' : '1'},500)",800);
-	setTimeout("jQuery('footer').animate({'opacity' : '1'},500)",2000);
+
+jQuery(window).on('load', function() {
+//Preloader
+  setTimeout("jQuery('#preloader').animate({'opacity' : '0'},300,function(){jQuery('#preloader').hide()})",800);
+  setTimeout("jQuery('.preloader_hide, .selector_open').animate({'opacity' : '1'},500)",800);
+  setTimeout("jQuery('footer').animate({'opacity' : '1'},500)",2000);
 
 });
 
@@ -26,8 +27,6 @@ jQuery(document).ready(function() {
 		zindex:"9999"
 	});
 });
-
-
 
 
 
@@ -95,45 +94,44 @@ jQuery(document).ready(function() {
 /*-----------------------------------------------------------------------------------*/
 /*	FLEXSLIDER
 /*-----------------------------------------------------------------------------------*/
-jQuery(window).load(function(){
-	//Top Slider
-	$('.flexslider.top_slider').flexslider({
-		animation: "fade",
-		controlNav: false,
-		directionNav: true,
-		animationLoop: false,
-		slideshow: false,
-		prevText: "",
-		nextText: "",
-		sync: "#carousel"
-	});
-	$('#carousel').flexslider({
-		animation: "fade",
-		controlNav: false,
-		animationLoop: false,
-		directionNav: false,
-		slideshow: false,
-		itemWidth: 100,
-		itemMargin: 5,
-		asNavFor: '.top_slider'
-	});
-	
-	homeHeight();
-	
-	
-	jQuery('.flexslider.top_slider .flex-direction-nav').addClass('container');
-	
-	
-	//Vision Slider
-	$('.flexslider.portfolio_single_slider').flexslider({
-		animation: "fade",
-		controlNav: true,
-		directionNav: true,
-		animationLoop: false,
-		slideshow: false,
-	});
-	
-	
+
+jQuery(window).on('load', function() {
+  //Top Slider
+  $('.flexslider.top_slider').flexslider({
+    animation: "fade",
+    controlNav: false,
+    directionNav: true,
+    animationLoop: false,
+    slideshow: false,
+    prevText: "",
+    nextText: "",
+    sync: "#carousel"
+  });
+  $('#carousel').flexslider({
+    animation: "fade",
+    controlNav: false,
+    animationLoop: false,
+    directionNav: false,
+    slideshow: false,
+    itemWidth: 100,
+    itemMargin: 5,
+    asNavFor: '.top_slider'
+  });
+
+  homeHeight();
+
+
+  jQuery('.flexslider.top_slider .flex-direction-nav').addClass('container');
+
+
+  //Vision Slider
+  $('.flexslider.portfolio_single_slider').flexslider({
+    animation: "fade",
+    controlNav: true,
+    directionNav: true,
+    animationLoop: false,
+    slideshow: false,
+  });
 });
 
 jQuery(window).resize(function(){

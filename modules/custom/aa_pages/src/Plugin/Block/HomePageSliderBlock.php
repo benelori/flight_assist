@@ -7,6 +7,7 @@ use Drupal\Core\Cache\Cache;
 use Drupal\Core\Link;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Url;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\node\NodeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManager;
@@ -107,11 +108,12 @@ class HomePageSliderBlock extends BlockBase implements ContainerFactoryPluginInt
       foreach ($entities as $key => $entity) {
         /** @var \Drupal\file\Entity\File $image */
         $image = $entity->field_image->entity;
+        $url = $image ? ImageStyle::load('homepage_slider')->buildUrl($image->getFileUri()) : '';
         /** @var NodeInterface $entity */
         $output[$key+1] = [
           'node' => $viewBuilder->view($entity, 'teaser'),
           'read_more' => $this->getReadMoreLink($entity),
-          'image' => $image ? $image->url() : '',
+          'image' => $url,
         ];
       }
     }
